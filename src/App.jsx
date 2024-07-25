@@ -2,6 +2,7 @@ import "./App.css";
 import Footer from "./components/footer/footer";
 import { useEffect } from "react";
 import { useTelegram } from "./components/hook/useTelegram";
+import Header from "./components/header/header";
 
 function App() {
   const { onToggleButton, tg } = useTelegram();
@@ -11,9 +12,7 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>Telegram Bot</h1>
-      </div>
+      <Header />
       <button onClick={onToggleButton}>Закрыть</button>
       <Footer />
     </>
