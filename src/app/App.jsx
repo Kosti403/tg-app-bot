@@ -24,9 +24,11 @@ function App() {
         <Route path="/" element={<Profile />} />
         <Route path="/workers" element={<Workers />} />
         <Route path="/statistics" element={<Statistics />} />
-        <Route path="/form" element={<Form />} />
       </Routes>
       <Footer />
+      <Routes>
+        <Route path="/form" element={<Form />} />
+      </Routes>
     </>
   );
 }
