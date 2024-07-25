@@ -1,17 +1,20 @@
 import "./App.css";
 import Footer from "./components/footer/footer";
-const tg = window.Telegram.WebApp;
+import { useEffect } from "react";
+import { useTelegram } from "./components/hook/useTelegram";
 
 function App() {
-  const handleClose = () => {
-    tg.close();
-  };
+  const { onToggleButton, tg } = useTelegram();
+  useEffect(() => {
+    tg.ready();
+  }, []);
+
   return (
     <>
       <div>
         <h1>Telegram Bot</h1>
       </div>
-      <button onClick={handleClose}>Закрыть</button>
+      <button onClick={onToggleButton}>Закрыть</button>
       <Footer />
     </>
   );
