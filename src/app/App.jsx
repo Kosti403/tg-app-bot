@@ -1,12 +1,15 @@
 import "./App.css";
-import Footer from "./components/footer/footer";
+
 import { useEffect } from "react";
 import { useTelegram } from "./components/hook/useTelegram";
-import Header from "./components/header/header";
+
 import { Routes, Route } from "react-router-dom";
-import Profile from "./pages/profile/profile";
-import Workers from "./pages/workers/workers";
-import Statistics from "./pages/statistics/statistics";
+import Header from "../components/header/header";
+import Profile from "../pages/profile/profile";
+import Workers from "../pages/workers/workers";
+import Statistics from "../pages/statistics/statistics";
+import Footer from "../components/footer/footer";
+
 function App() {
   const { tg } = useTelegram();
   useEffect(() => {
