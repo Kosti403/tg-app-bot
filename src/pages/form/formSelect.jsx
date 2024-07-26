@@ -73,7 +73,6 @@ export const FormSelect = () => {
         <option className={s.option} value="physical">Физ. лицо</option>
         <option className={s.option} value="legal">Юр. лицо</option>
       </select>
-      <Button className={s.button} onClick={onSendData}>Отправить</Button>
      </div>
     </div>
   );
