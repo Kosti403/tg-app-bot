@@ -3,13 +3,11 @@ import "./cardComponents.css";
 
 const Card = ({ title, subtitle, body, additionalInfo }) => {
   return (
-    <div className="card">
-      <h2>{title}</h2>
-      {subtitle && <h3>{subtitle}</h3>}
-      <p>{body}</p>
-      {additionalInfo && (
-        <div className="additional-info">{additionalInfo}</div>
-      )}
+    <div className="border-solid border-slate-400 rounded-lg p-4 mb-4 bg-slate-50 ">
+      <h2 className="font-semibold">{title}</h2>
+      {subtitle && <h3 className="text-gray-500 font-semibold">{subtitle}</h3>}
+      <p className="text-gray-800">{body}</p>
+      {additionalInfo && <div className="text-gray-600">{additionalInfo}</div>}
     </div>
   );
 };

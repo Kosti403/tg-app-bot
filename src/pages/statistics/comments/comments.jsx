@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Card from "../../../components/ui/card/CardComponents";
 import { Button } from "../../../components/ui/button/button";
+
 export default function Comments() {
   const [comments, setComments] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [animationParent] = useAutoAnimate();
 
   const fetchComments = async (page = 1) => {
     try {
       const response = await fetch(
-        `https://196aaaeccf054b68.mokky.dev/comments?page=${page}&limit=1`
+        `https://196aaaeccf054b68.mokky.dev/comments?page=${page}&limit=2`
       );
       const data = await response.json();
       setComments(data.items);
@@ -31,16 +34,18 @@ export default function Comments() {
   const handleNext = () => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
   };
+
   const swipeHandlers = useSwipeable({
     onSwipedLeft: handleNext,
     onSwipedRight: handlePrev,
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
   });
+
   return (
     <div {...swipeHandlers} className="h-full">
-      <h1 className="font-bold text-2xl  mb-5">Comments</h1>
-      <div className=" ">
+      <h1 className="font-bold text-2xl mb-5">Comments</h1>
+      <div ref={animationParent}>
         {comments.map((comment) => (
           <Card
             key={comment.id}

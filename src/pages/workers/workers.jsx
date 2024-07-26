@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Card from "../../components/ui/card/CardComponents";
 
 function Workers() {
   const [workers, setWorkers] = useState([]);
+  const [animationParent] = useAutoAnimate();
 
   const fetchWorkers = async () => {
     try {
@@ -21,7 +23,7 @@ function Workers() {
   return (
     <div className="workers">
       <h1 className="text-3xl font-bold text-center my-5">Сотрудники</h1>
-      <div>
+      <div ref={animationParent}>
         {workers.map((worker) => (
           <Card
             key={worker.id}
@@ -30,13 +32,14 @@ function Workers() {
             body={`Email: ${worker.email}`}
             additionalInfo={
               <>
-                <p>
+                <p className="text-gray-600">
                   Address: {worker.address.street}, {worker.address.city}
                 </p>
-                <p>Phone: {worker.phone}</p>
-                <p>
-                  Website:{" "}
+                <p className="text-gray-600">Phone: {worker.phone}</p>
+                <p className="text-gray-600">
+                  Website:
                   <a
+                    className="text-gray-600"
                     href={`http://${worker.website}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -44,7 +47,7 @@ function Workers() {
                     {worker.website}
                   </a>
                 </p>
-                <p>Company: {worker.company.name}</p>
+                <p className="text-gray-600">Company: {worker.company.name}</p>
               </>
             }
           />

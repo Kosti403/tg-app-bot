@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Card from "../../../components/ui/card/CardComponents";
 import { Button } from "../../../components/ui/button/button";
 
@@ -7,11 +8,12 @@ export default function Post() {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [animationParent] = useAutoAnimate();
 
   const fetchPosts = async (page = 1) => {
     try {
       const response = await fetch(
-        `https://196aaaeccf054b68.mokky.dev/post?page=${page}&limit=1`
+        `https://196aaaeccf054b68.mokky.dev/post?page=${page}&limit=2`
       );
       const data = await response.json();
       setPosts(data.items);
@@ -43,7 +45,7 @@ export default function Post() {
   return (
     <div {...swipeHandlers}>
       <h1 className="font-bold text-2xl mb-5">Posts</h1>
-      <div className="post-list">
+      <div ref={animationParent}>
         {posts.map((post) => (
           <Card key={post.id} title={post.title} body={post.body} />
         ))}
