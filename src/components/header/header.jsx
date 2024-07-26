@@ -2,7 +2,7 @@ import { useTelegram } from "../hook/useTelegram";
 import { Button } from "../ui/button/button";
 
 export default function Header() {
-  const { user, handleClose } = useTelegram();
+  const { firstName, handleClose } = useTelegram();
   return (
     <>
       <header className="w-full bg-cyan-800 p-5 text-center m-0 flex justify-between items-center ">
@@ -16,7 +16,7 @@ export default function Header() {
           </Button>
         </div>
         <span className="text-center font-medium text-lg text-stone-200">
-          Приветствуем {user?.username}!
+          Приветствуем {firstName}!
         </span>
       </header>
     </>
