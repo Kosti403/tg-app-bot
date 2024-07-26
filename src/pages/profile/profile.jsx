@@ -2,14 +2,14 @@ import { useTelegram } from "../../components/hook/useTelegram";
 import "./profile.css";
 
 export default function Profile() {
-  const { firstName, lastName, userId, photoUrl, user } = useTelegram();
+  const { firstName, lastName, userId, photoUrl, user, email, phoneNumber, authDate } = useTelegram();
 
   return (
     <div className="profile-container">
       <div className="profile-card">
         <div className="profile-header">
           <div className="profile-icon">
-            {photoUrl?.photo_url ? (
+            {photoUrl ? (
               <img src={photoUrl} alt="Profile" className="profile-photo" />
             ) : (
               <svg
@@ -34,9 +34,12 @@ export default function Profile() {
           </h2>
         </div>
         <div className="profile-details text-gray-600">
-          <p className="text-gray-600">First Name: {firstName?.first_name || "Unknown"}</p>
-          <p className="text-gray-600">Last Name: {lastName?.last_name || "Unknown"}</p>
-          <p className="text-gray-600">ID: {userId?.id || "Unknown"}</p>
+          <p className="text-gray-600">First Name: {firstName || "Unknown"}</p>
+          <p className="text-gray-600">Last Name: {lastName || "Unknown"}</p>
+          <p className="text-gray-600">ID: {userId || "Unknown"}</p>
+          <p className="text-gray-600">Email: {email}</p>
+          <p className="text-gray-600">Phone Number: {phoneNumber}</p>
+          <p className="text-gray-600">Auth Date: {authDate}</p>
         </div>
       </div>
     </div>
