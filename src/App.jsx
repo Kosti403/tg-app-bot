@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
@@ -8,8 +8,11 @@ import Statistics from "./pages/statistics/statistics";
 import { useTelegram } from "./shared/hook/useTelegram";
 import "./app/App.css";
 import { FormSelect } from "./pages/form/formSelect";
+
 function App() {
   const { tg } = useTelegram();
+  const location = useLocation();
+
   useEffect(() => {
     tg.ready();
   }, [tg]);
@@ -22,10 +25,10 @@ function App() {
           <Route path="/" element={<Profile />} />
           <Route path="/workers" element={<Workers />} />
           <Route path="/statistics" element={<Statistics />} />
-          <Route path={"formSelect"} element={<FormSelect />} />
+          <Route path="/formSelect" element={<FormSelect />} />
         </Routes>
       </div>
-      <Footer />
+      {location.pathname !== "/formSelect" && <Footer />}
     </>
   );
 }
