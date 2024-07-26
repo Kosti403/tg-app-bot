@@ -12,12 +12,11 @@
   width: 100%;
   margin: auto;
   padding: 20px;
-  /* background-color: #b2afaf; */
   background-color: var(--tg-theme-bg-color);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #121213;
+  color: var(--tg-theme-text-color);
 }
 
 .form:hover {
@@ -26,12 +25,11 @@
 }
 
 .title {
-  color: #333;
   margin-bottom: 20px;
   font-size: 1.5em;
   text-align: center;
   transition: color 0.3s ease;
-  color: #121213;
+  color: var(--tg-theme-text-color);
 }
 
 .title:hover {
@@ -46,7 +44,9 @@
   border-radius: 5px;
   font-size: 1em;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  color: #121213;
+
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
 }
 
 .input:focus {
@@ -63,7 +63,7 @@
   border-radius: 5px;
   font-size: 1em;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  color: #121213;
+  color: var(--tg-theme-text-color);
 }
 
 .select:focus {
@@ -76,7 +76,7 @@
 .option {
   font-size: 1em;
   padding: 10px;
-  color: #121213;
+  color: var(--tg-theme-text-color);
 }
 
 .button {
