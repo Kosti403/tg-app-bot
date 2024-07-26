@@ -11,7 +11,7 @@ export default function Header() {
           <h2 className="font-bold text-lg  text-gray-100">Telegram Bot</h2>
           <Button
             onClick={handleClose}
-            className="text-black hover:text-gray-950"
+            className="text-black "
           >
             Close
           </Button>

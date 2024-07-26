@@ -6,13 +6,14 @@
     rgb(0, 71, 255) 50%,
     rgb(132, 83, 210) 90%
   );
-  color: white;
+
   border: none;
   padding: 5px 15px;
   cursor: pointer;
   border-radius: 8px;
   transition-duration: 0.4s;
   overflow: hidden;
+  color: var(--tg-theme-text-color);
 }
 
 .button:hover::before {
@@ -33,7 +34,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--tg-theme-text-color);
 }
 
 .button:active {
@@ -46,7 +47,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--tg-theme-text-color);
 }
 
 .button::before {
