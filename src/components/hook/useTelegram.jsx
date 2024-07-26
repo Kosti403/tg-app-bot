@@ -15,7 +15,7 @@ export function useTelegram() {
     tg,
     handleClose,
     onToggleButton,
-    user: user?.user,
+    user: tg.initDataUnsafe?.user,
     firstName: user?.first_name,
     lastName: user?.last_name,
     photoUrl: user?.photo_url,
