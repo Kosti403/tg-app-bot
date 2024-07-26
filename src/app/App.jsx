@@ -20,12 +20,13 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Profile />} />
-        <Route path="/workers" element={<Workers />} />
-        <Route path="/statistics" element={<Statistics />} />
-        {/* <Route path="/form" element={<Form />} /> */}
-      </Routes>
+      <div className="flex-1 pb-20 px-5">
+        <Routes>
+          <Route path="/" element={<Profile />} />
+          <Route path="/workers" element={<Workers />} />
+          <Route path="/statistics" element={<Statistics />} />
+        </Routes>
+      </div>
       <Footer />
     </>
   );

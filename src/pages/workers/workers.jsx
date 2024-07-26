@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import Card from "../../components/ui/CardComponents";
-
+import Card from "../../components/ui/card/CardComponents";
 
 function Workers() {
   const [workers, setWorkers] = useState([]);
@@ -21,8 +20,8 @@ function Workers() {
 
   return (
     <div className="workers">
-      <h1>Сотрудники</h1>
-      <div className="workers-list">
+      <h1 className="text-3xl font-bold text-center my-5">Сотрудники</h1>
+      <div>
         {workers.map((worker) => (
           <Card
             key={worker.id}

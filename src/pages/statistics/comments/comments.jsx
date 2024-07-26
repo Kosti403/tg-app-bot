@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import Card from "../../../components/ui/CardComponents";
 import { useSwipeable } from "react-swipeable";
+import Card from "../../../components/ui/card/CardComponents";
+import { Button } from "../../../components/ui/button/button";
 export default function Comments() {
   const [comments, setComments] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -37,9 +38,9 @@ export default function Comments() {
     trackMouse: true,
   });
   return (
-    <div {...swipeHandlers}>
-      <h1>Comments</h1>
-      <div className="comment-list">
+    <div {...swipeHandlers} className="h-full">
+      <h1 className="font-bold text-2xl  mb-5">Comments</h1>
+      <div className=" ">
         {comments.map((comment) => (
           <Card
             key={comment.id}
@@ -48,14 +49,21 @@ export default function Comments() {
             body={comment.body}
           />
         ))}
-      </div>
-      <div className="pagination">
-        <button onClick={handlePrev} disabled={currentPage === 1}>
-          Previous
-        </button>
-        <button onClick={handleNext} disabled={currentPage === totalPages}>
-          Next
-        </button>
+        <div className="pagination">
+          <Button onClick={handlePrev} disabled={currentPage === 1}>
+            Previous
+          </Button>
+          <Button
+            onClick={handleNext}
+            disabled={currentPage === totalPages}
+            className="ml-5"
+          >
+            Next
+          </Button>
+          <p className="pageNumber">
+            Page {currentPage} of {totalPages}
+          </p>
+        </div>
       </div>
     </div>
   );
