@@ -1,5 +1,4 @@
 const tg = window.Telegram.WebApp;
-
 export function useTelegram() {
   const handleClose = () => {
     tg.close();
@@ -12,12 +11,13 @@ export function useTelegram() {
       tg.MainButton.show();
     }
   };
+  console.log(tg.initDataUnsafe);
 
   const user = tg.initDataUnsafe?.user || {};
-  const userId = tg.initDataUnsafe?.id || '';
-  const firstName = tg.initDataUnsafe?.first_name || '';
-  const lastName = tg.initDataUnsafe?.last_name || '';
-  const photoUrl = tg.initDataUnsafe?.photo_url || '';
+  const userId = tg.initDataUnsafe?.id || "";
+  const firstName = tg.initDataUnsafe?.first_name || "";
+  const lastName = tg.initDataUnsafe?.last_name || "";
+  const photoUrl = tg.initDataUnsafe?.photo_url || "";
 
   return {
     tg,
