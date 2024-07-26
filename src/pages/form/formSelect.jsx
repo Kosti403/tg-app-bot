@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useTelegram } from "../../shared/hook/useTelegram";
 import s from "./Form.module.css";
-import { Button } from './../../shared/ui/button/button';
 
 export const FormSelect = () => {
   const [country, setCountry] = useState("");
