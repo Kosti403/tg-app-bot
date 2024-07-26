@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import "./Form.css";
 import { useTelegram } from "../../shared/hook/useTelegram";
+import "./Form.css";
 
 const Form = () => {
   const [country, setCountry] = useState("");
@@ -28,7 +28,7 @@ const Form = () => {
     tg.MainButton.setParams({
       text: "Отправить данные",
     });
-  }, []);
+  }, [tg]);
 
   useEffect(() => {
     if (!street || !country) {

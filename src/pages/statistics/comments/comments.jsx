@@ -42,16 +42,22 @@ export default function Comments() {
     trackMouse: true,
   });
 
+  function capitalizeFirstWord(text) {
+    if (!text) return "";
+    const [firstWord, ...rest] = text.split(" ");
+    return [firstWord.toUpperCase(), ...rest].join(" ");
+  }
+
   return (
-    <div {...swipeHandlers} className="h-full">
+    <div {...swipeHandlers} className="h-full mb-10">
       <h1 className="font-bold text-2xl mb-5">Comments</h1>
       <div ref={animationParent}>
         {comments.map((comment) => (
           <Card
             key={comment.id}
-            title={comment.name}
-            subtitle={comment.email}
-            body={comment.body}
+            title={capitalizeFirstWord(comments.title)}
+            subtitle={capitalizeFirstWord(comment.email)}
+            body={capitalizeFirstWord(comment.body)}
           />
         ))}
         <div className="pagination">

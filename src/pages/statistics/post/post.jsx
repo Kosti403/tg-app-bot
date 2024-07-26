@@ -4,7 +4,6 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { Button } from "../../../shared/ui/button/button";
 import Card from "../../../shared/ui/card/CardComponents";
 
-
 export default function Post() {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -14,7 +13,7 @@ export default function Post() {
   const fetchPosts = async (page = 1) => {
     try {
       const response = await fetch(
-        `https://196aaaeccf054b68.mokky.dev/post?page=${page}&limit=2`
+        `https://196aaaeccf054b68.mokky.dev/post?page=${page}&limit=1`
       );
       const data = await response.json();
       setPosts(data.items);
@@ -43,12 +42,22 @@ export default function Post() {
     trackMouse: true,
   });
 
+  function capitalizeFirstWord(text) {
+    if (!text) return "";
+    const [firstWord, ...rest] = text.split(" ");
+    return [firstWord.toUpperCase(), ...rest].join(" ");
+  }
+
   return (
     <div {...swipeHandlers}>
       <h1 className="font-bold text-2xl mb-5">Posts</h1>
       <div ref={animationParent}>
         {posts.map((post) => (
-          <Card key={post.id} title={post.title} body={post.body} />
+          <Card
+            key={post.id}
+            title={capitalizeFirstWord(post.title)}
+            body={capitalizeFirstWord(post.body)}
+          />
         ))}
       </div>
       <div className="pagination">
