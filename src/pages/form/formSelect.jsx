@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useTelegram } from "../../shared/hook/useTelegram";
-import "./Form.css";
+import s from "./Form.module.css";
+import { Button } from './../../shared/ui/button/button';
 
 export const FormSelect = () => {
   const [country, setCountry] = useState("");
@@ -51,26 +52,29 @@ export const FormSelect = () => {
   };
 
   return (
-    <div className="form">
-      <h3>Введите ваши данные</h3>
+    <div className={s.formContent}>
+     <div className={s.form} >
+      <h3 className={s.title}>Введите ваши данные</h3>
       <input
-        className="input"
+        className={s.input}
         type="text"
         placeholder="Страна"
         value={country}
         onChange={onChangeCountry}
       />
       <input
-        className="input"
+        className={s.input}
         type="text"
-        placeholder={"Улица"}
+        placeholder="Улица"
         value={street}
         onChange={onChangeStreet}
       />
-      <select value={subject} onChange={onChangeSubject} className="select">
-        <option className="option" value={"physical"}>Физ. лицо</option>
-        <option className="option" value={"legal"}>Юр. лицо</option>
+      <select value={subject} onChange={onChangeSubject} className={s.select}>
+        <option className={s.option} value="physical">Физ. лицо</option>
+        <option className={s.option} value="legal">Юр. лицо</option>
       </select>
+      <Button className={s.button} onClick={onSendData}>Отправить</Button>
+     </div>
     </div>
   );
 };

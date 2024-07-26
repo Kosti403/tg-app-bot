@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Card from "../../shared/ui/card/CardComponents";
 
-
 function Workers() {
   const [workers, setWorkers] = useState([]);
   const [animationParent] = useAutoAnimate();
