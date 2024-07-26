@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useTelegram } from "../../shared/hook/useTelegram";
 import "./Form.css";
 
-const Form = () => {
+export const FormSelect = () => {
   const [country, setCountry] = useState("");
   const [street, setStreet] = useState("");
   const [subject, setSubject] = useState("physical");
@@ -51,28 +51,26 @@ const Form = () => {
   };
 
   return (
-    <div className={"form"}>
+    <div className="form">
       <h3>Введите ваши данные</h3>
       <input
-        className={"input"}
+        className="input"
         type="text"
-        placeholder={"Страна"}
+        placeholder="Страна"
         value={country}
         onChange={onChangeCountry}
       />
       <input
-        className={"input"}
+        className="input"
         type="text"
         placeholder={"Улица"}
         value={street}
         onChange={onChangeStreet}
       />
-      <select value={subject} onChange={onChangeSubject} className={"select"}>
-        <option value={"physical"}>Физ. лицо</option>
-        <option value={"legal"}>Юр. лицо</option>
+      <select value={subject} onChange={onChangeSubject} className="select">
+        <option className="option" value={"physical"}>Физ. лицо</option>
+        <option className="option" value={"legal"}>Юр. лицо</option>
       </select>
     </div>
   );
 };
-
-export default Form;

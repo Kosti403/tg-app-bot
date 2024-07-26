@@ -5,9 +5,9 @@ import Footer from "./components/footer/footer";
 import Profile from "./pages/profile/profile";
 import Workers from "./pages/workers/workers";
 import Statistics from "./pages/statistics/statistics";
-import Form from "./pages/form/form";
 import { useTelegram } from "./shared/hook/useTelegram";
 import "./app/App.css";
+import { FormSelect } from "./pages/form/formSelect";
 function App() {
   const { tg } = useTelegram();
   useEffect(() => {
@@ -22,7 +22,7 @@ function App() {
           <Route path="/" element={<Profile />} />
           <Route path="/workers" element={<Workers />} />
           <Route path="/statistics" element={<Statistics />} />
-          <Route path="/form" element={<Form />} />
+          <Route path={"formSelect"} element={<FormSelect />} />
         </Routes>
       </div>
       <Footer />
