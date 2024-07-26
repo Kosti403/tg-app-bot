@@ -1,8 +1,10 @@
 const tg = window.Telegram.WebApp;
+
 export function useTelegram() {
   const handleClose = () => {
     tg.close();
   };
+
   const onToggleButton = () => {
     if (tg.MainButton.isVisible) {
       tg.MainButton.hide();
@@ -15,7 +17,6 @@ export function useTelegram() {
     tg,
     handleClose,
     onToggleButton,
-    user: tg.initDataUnsafe?.user,
     firstName: user?.first_name,
     lastName: user?.last_name,
     photoUrl: user?.photo_url,

@@ -2,8 +2,8 @@ import { useTelegram } from "../../components/hook/useTelegram";
 import "./profile.css";
 
 export default function Profile() {
-  const { firstName, lastName, userId, photoUrl, handleClose, user } =
-    useTelegram();
+  
+  const { firstName, lastName, userId, photoUrl, user } = useTelegram();
 
   return (
     <div className="profile-container">
@@ -43,9 +43,6 @@ export default function Profile() {
           </p>
           <p className="text-gray-600">ID: {userId ? userId : "777777"}</p>
         </div>
-        <button className="profile-close-button" onClick={handleClose}>
-          Close
-        </button>
       </div>
     </div>
   );
