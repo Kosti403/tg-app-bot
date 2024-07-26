@@ -17,7 +17,7 @@ export default function Header() {
           </Button>
         </div>
         <span className="text-center font-medium text-lg text-stone-200">
-          Приветствуем {firstName}!
+          Приветствуем <br />{firstName}!
         </span>
       </header>
     </>
