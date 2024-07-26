@@ -16,10 +16,10 @@ export function useTelegram() {
   const initData = tg.initDataUnsafe || {};
   
   const user = initData.user || {};
-  const userId = user.id || "";
-  const firstName = user.first_name || "";
-  const lastName = user.last_name || "";
-  const photoUrl = user.photo_url || "";
+  const userId = initData.id || "";
+  const firstName = initData.first_name || "";
+  const lastName = initData.last_name || "";
+  const photoUrl = initData.photo_url || "";
 
   return {
     tg,
