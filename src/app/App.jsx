@@ -9,7 +9,7 @@ import Workers from "../pages/workers/workers";
 import Statistics from "../pages/statistics/statistics";
 import Footer from "../components/footer/footer";
 import { useTelegram } from "../components/hook/useTelegram";
-import Form from "../pages/form/form";
+// import Form from "../pages/form/form";
 
 function App() {
   const { tg } = useTelegram();
@@ -24,11 +24,9 @@ function App() {
         <Route path="/" element={<Profile />} />
         <Route path="/workers" element={<Workers />} />
         <Route path="/statistics" element={<Statistics />} />
+        {/* <Route path="/form" element={<Form />} /> */}
       </Routes>
       <Footer />
-      <Routes>
-        <Route path="/form" element={<Form />} />
-      </Routes>
     </>
   );
 }

@@ -1,0 +1,27 @@
+/* components/Card.css */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #f9f9f9;
+}
+
+.card h2 {
+  margin: 0 0 8px;
+  font-size: 1.5em;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.card p {
+  margin: 8px 0;
+}
+
+.card .additional-info p {
+  margin: 4px 0;
+}
