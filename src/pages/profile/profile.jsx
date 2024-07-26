@@ -2,7 +2,7 @@ import { useTelegram } from "../../components/hook/useTelegram";
 import "./profile.css";
 
 export default function Profile() {
-
+  
   const { firstName, lastName, userId, photoUrl, user } = useTelegram();
 
   return (
@@ -11,7 +11,7 @@ export default function Profile() {
         <div className="profile-header">
           <div className="profile-icon">
             {photoUrl ? (
-              <img src={photoUrl?.photoUrl} alt="Profile" className="profile-photo" />
+              <img src={photoUrl} alt="Profile" className="profile-photo" />
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -31,17 +31,13 @@ export default function Profile() {
             )}
           </div>
           <h2 className="profile-username text-gray-600 font-semibold">
-            Admin: {user?.username}!
+            Admin: {user?.username || "Unknown"}!
           </h2>
         </div>
         <div className="profile-details text-gray-600">
-          <p className="text-gray-600">
-            First Name: {firstName?.firstName ? firstName?.firstName : "Obama"}
-          </p>
-          <p className="text-gray-600">
-            Last Name: {lastName?.lastName ? lastName?.lastName : "Luxury"}
-          </p>
-          <p className="text-gray-600">ID: {userId.userId ? userId.userId : "777777"}</p>
+          <p className="text-gray-600">First Name: {firstName || "Obama"}</p>
+          <p className="text-gray-600">Last Name: {lastName || "Luxury"}</p>
+          <p className="text-gray-600">ID: {userId || "777777"}</p>
         </div>
       </div>
     </div>
