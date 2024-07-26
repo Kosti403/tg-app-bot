@@ -1,5 +1,6 @@
-import { useTelegram } from "../hook/useTelegram";
-import { Button } from "../ui/button/button";
+import { useTelegram } from "../../shared/hook/useTelegram";
+import { Button } from "../../shared/ui/button/button";
+
 
 export default function Header() {
   const { firstName, handleClose } = useTelegram();

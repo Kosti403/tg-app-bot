@@ -1,8 +1,17 @@
-import { useTelegram } from "../../components/hook/useTelegram";
+import { useTelegram } from "../../shared/hook/useTelegram";
 import "./profile.css";
 
 export default function Profile() {
-  const { firstName, lastName, userId, photoUrl, user, email, phoneNumber, authDate } = useTelegram();
+  const {
+    firstName,
+    lastName,
+    userId,
+    photoUrl,
+    user,
+    email,
+    phoneNumber,
+    authDate,
+  } = useTelegram();
 
   return (
     <div className="profile-container">

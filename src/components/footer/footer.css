@@ -1,21 +1,3 @@
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #334155;
-  padding: 30px;
-  text-align: center;
-  list-style: none;
-  margin: 0;
-}
-
-.footer-ul {
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-}
-
 .footer-li {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -23,6 +5,7 @@
 .footer-li:hover {
   transform: scale(1.05);
   opacity: 0.8;
+  font-size: larger;
 }
 
 .footer a {

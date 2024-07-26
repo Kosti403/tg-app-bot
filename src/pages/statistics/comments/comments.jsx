@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import Card from "../../../components/ui/card/CardComponents";
-import { Button } from "../../../components/ui/button/button";
+import { Button } from "../../../shared/ui/button/button";
+import Card from "../../../shared/ui/card/CardComponents";
 
 export default function Comments() {
   const [comments, setComments] = useState([]);
