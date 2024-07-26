@@ -15,9 +15,9 @@ export function useTelegram() {
     handleClose,
     onToggleButton,
     user: tg.initDataUnsafe?.user,
-    userId: tg.initDataUnsafe?.user?.id,
-    firstName: tg.initDataUnsafe?.user?.first_name,
-    lastName: tg.initDataUnsafe?.user?.last_name,
-    photoUrl: tg.initDataUnsafe?.user?.photo_url,
+    userId: tg.initDataUnsafe?.id,
+    firstName: tg.initDataUnsafe?.first_name,
+    lastName: tg.initDataUnsafe?.last_name,
+    photoUrl: tg.initDataUnsafe?.photo_url,
   };
 }
