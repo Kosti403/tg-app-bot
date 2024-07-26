@@ -10,13 +10,15 @@ export function useTelegram() {
       tg.MainButton.show();
     }
   };
+  const user = tg.initDataUnsafe?.user;
   return {
     tg,
     handleClose,
     onToggleButton,
-    user: tg.initDataUnsafe?.user,
-    queryId: tg.initDataUnsafe?.query_id,
-    number: tg.initDataUnsafe?.number,
-    email: tg.initDataUnsafe?.email,
+    user: user?.user,
+    firstName: user?.first_name,
+    lastName: user?.last_name,
+    photoUrl: user?.photo_url,
+    userId: user?.id,
   };
 }
