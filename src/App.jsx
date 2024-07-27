@@ -8,6 +8,7 @@ import Statistics from "./pages/statistics/statistics";
 import { useTelegram } from "./shared/hook/useTelegram";
 import "./app/App.css";
 import { FormSelect } from "./pages/form/formSelect";
+import ProductList from "./pages/ProductList/ProductList";
 
 function App() {
   const { tg } = useTelegram();
@@ -26,9 +27,11 @@ function App() {
           <Route path="/workers" element={<Workers />} />
           <Route path="/statistics" element={<Statistics />} />
           <Route path="/formSelect" element={<FormSelect />} />
+          <Route path="/productList" element={<ProductList />} />
         </Routes>
       </div>
       {location.pathname !== "/formSelect" && <Footer />}
+      {location.pathname !== "/productList" && <Footer />}
     </>
   );
 }
