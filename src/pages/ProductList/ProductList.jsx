@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import ProductItem from "../ProductItem/ProductItem";
 import "./ProductList.css";
 import { useTelegram } from "../../shared/hook/useTelegram";
@@ -13,6 +14,10 @@ const ProductList = () => {
   const [addedItems, setAddedItems] = useState([]);
   const [parent] = useAutoAnimate();
   const { tg, queryId } = useTelegram();
+  const location = useLocation();
+
+  const searchParams = new URLSearchParams(location.search);
+  const chatId = searchParams.get("chatId");
 
   const fetchItems = async () => {
     try {
@@ -28,20 +33,25 @@ const ProductList = () => {
     fetchItems();
   }, []);
 
-  const onSendData = useCallback(() => {
+  const onSendData = useCallback(async () => {
     const data = {
       products: addedItems,
       totalPrice: getTotalPrice(addedItems),
       queryId,
     };
-    fetch("https://196aaaeccf054b68.mokky.dev/cart", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-  }, [addedItems, queryId]);
+
+    try {
+      await tg.sendMessage(
+        chatId,
+        `Поздравляю с покупкой, вы приобрели товар на сумму ${
+          data.totalPrice
+        }, ${data.products.map((item) => item.title).join(", ")}`
+      );
+      tg.close();
+    } catch (error) {
+      console.error("Ошибка при отправке данных боту:", error);
+    }
+  }, [addedItems, queryId, tg, chatId]);
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
