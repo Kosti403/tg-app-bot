@@ -18,6 +18,9 @@ function App() {
     tg.ready();
   }, [tg]);
 
+  const hideFooterPaths = ["/formSelect", "/productList"];
+  const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
+
   return (
     <>
       <Header />
@@ -30,8 +33,7 @@ function App() {
           <Route path="/productList" element={<ProductList />} />
         </Routes>
       </div>
-      {location.pathname !== "/formSelect" && <Footer />}
-      {location.pathname !== "/productList" && <Footer />}
+      {shouldShowFooter && <Footer />}
     </>
   );
 }
